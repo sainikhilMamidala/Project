@@ -1,0 +1,10 @@
+
+<!DOCTYPE html>
+<html><body>
+<h2>Add Donation</h2>
+<form method='POST'>{% csrf_token %}
+  {{ form.as_p }}
+  <button type='submit'>Submit Donation</button>
+</form>
+<a href='{% url 'home' %}'>Back to Home</a>
+</body></html>
