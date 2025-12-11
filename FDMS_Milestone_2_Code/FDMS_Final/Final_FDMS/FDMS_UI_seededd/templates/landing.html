@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    /* Background: just food image */
+    body {
+        background: url('https://img.freepik.com/free-photo/full-table-italian-meals-ai-generated-image_511042-1705.jpg?t=st=1764835833~exp=1764839433~hmac=ab4db30b67b41e0dc9f0b979266a94c5c1f14490b12beb9e4cbf3446478f8aaf&w=1480') no-repeat center center fixed;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Center container */
+    .center-wrapper {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    /* Transparent glass box for content readability */
+    .glass-box {
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        padding: 50px 70px;
+        border-radius: 15px;
+        text-align: center;
+        color: black;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Black heading and paragraph */
+    .glass-box h2,
+    .glass-box p {
+        color: black !important;
+    }
+</style>
+
+<div class="center-wrapper">
+    <div class="glass-box">
+        <h2>Welcome to FDMS</h2>
+        <p>Select your role to begin your Food Donation Management journey</p>
+
+        <div class="mt-3">
+    <a class="btn btn-primary mx-2 px-4" href="/admin/login/">Admin</a>
+
+    <a class="btn btn-success mx-2 px-4" href="{% url 'donor_login' %}">
+       Donor
+    </a>
+
+    <a class="btn btn-info mx-2 px-4" href="{% url 'receiver_login' %}">
+       Receiver
+    </a>
+</div>
+
+    </div>
+</div>
+
+{% endblock %}

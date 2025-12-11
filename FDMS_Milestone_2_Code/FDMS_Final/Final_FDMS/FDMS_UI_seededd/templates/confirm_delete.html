@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Confirm Delete</h3>
+<p>Are you sure you want to delete the remaining quantity of "{{ donation.title }}"?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Yes, Delete</button>
+  <a href="{% url 'donor_dashboard' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

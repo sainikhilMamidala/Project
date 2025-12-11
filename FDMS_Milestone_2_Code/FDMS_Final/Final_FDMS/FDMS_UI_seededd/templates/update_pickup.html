@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h4>Update Pickup for "{{ donation.title }}"</h4>
+<p>Type: {{ donation.get_donation_type_display }} · Expires: {{ donation.expiry_date }}</p>
+<form method="post">
+  {% csrf_token %}
+  <button class="btn btn-success" name="action" value="picked">Mark Picked Up</button>
+  <button class="btn btn-danger" name="action" value="reject">Reject</button>
+  <a class="btn btn-secondary" href="{% url 'receiver_dashboard' %}">Back</a>
+</form>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="center-wrapper">
+    <div class="glass-box">
+        <h3>Donor Signup</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-success">Create Account and Login</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
