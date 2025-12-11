@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    body {
+        background: linear-gradient(135deg, #ffe5b4, #ffd580);
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+    }
+    .center-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 20px;
+    }
+    .glass-box {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 40px 60px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        color: black;
+        width: 100%;
+        max-width: 400px;
+    }
+    .glass-box h3 {
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+    .glass-box form {
+        display: flex;
+        flex-direction: column;
+    }
+    .glass-box form input {
+        margin-bottom: 15px;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    .glass-box form button {
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    .signup-link {
+        text-align: center;
+        margin-top: 10px;
+    }
+</style>
+
+<div class="center-wrapper">
+    <div class="glass-box">
+        <h3>Receiver Login</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-info">Login as Receiver</button>
+        </form>
+        <div class="signup-link">
+            <p>Don't have an account? <a href="{% url 'receiver_signup' %}">Sign up here</a></p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
